@@ -1,10 +1,18 @@
 /* Bring in dependencies */
 const express = require("express");
 const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
 
 /* Setup express */
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+/* Setup static content */
+app.use(express.static("public"));
+
+/* Setup express-handlebars */
+app.engine("handlebars" , exphbs({ defaultLayout: "main" }));
+app.set("view engine" , "handlebars");
 
 /* Models */
 var db = require("./models")
