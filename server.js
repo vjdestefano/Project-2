@@ -15,7 +15,7 @@ app.engine("handlebars" , exphbs({ defaultLayout: "main" }));
 app.set("view engine" , "handlebars");
 
 /* Models */
-var db = require("./models")
+var db = require("./models");
 
 /* Add any static directories here */
 
@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 /* Add routes here */
+require("./routes/html-routes.js")(app);
 
 /* Sync database and listen remember to remove the force true when pushing to production */
 db.sequelize.sync({ force: true}).then(function(){
