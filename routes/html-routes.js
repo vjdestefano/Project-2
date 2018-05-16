@@ -7,7 +7,6 @@ var path = require("path");
 module.exports = function(app) {
 
   var ex = {
-    name: "test",
   }
 
   /* Homepage route */
